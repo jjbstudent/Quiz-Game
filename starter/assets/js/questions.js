@@ -11,5 +11,5 @@ var questionsArray = [
       ],
       correctAnswer: "var x = 5;"
     },
-    // Add more questions as needed
+    // Add more questions 
   ];
