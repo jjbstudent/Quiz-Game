@@ -58,8 +58,7 @@ choiceButton.addEventListener("click", function () {
     displayResults();
     console.log("Final Score:", score);
 
-    // reset the quiz state if needed
-    resetQuizState();
+    
   }
 });
 
