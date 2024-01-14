@@ -39,8 +39,6 @@ choiceButton.addEventListener("click", function () {
     // Increment the score if the choice is correct
     score++;
 
-    // You can also update the score display if needed
-    // Example: document.getElementById("score").textContent = score;
   }
 
   // Move to the next question
@@ -57,6 +55,7 @@ choiceButton.addEventListener("click", function () {
     // When the Quiz has ended display results 
     displayResults();
     console.log("Final Score:", score);
+    document.addEventListener
 
     
   }
