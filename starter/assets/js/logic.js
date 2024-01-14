@@ -54,9 +54,11 @@ choiceButton.addEventListener("click", function () {
     // No more questions, handle quiz completion logic
 
     // Display the results using the recorded choices in local storage
+    // When the Quiz has ended display results 
     displayResults();
+    console.log("Final Score:", score);
 
-    // Optionally, you can reset the quiz state if needed
+    // reset the quiz state if needed
     resetQuizState();
   }
 });
