@@ -1,8 +1,3 @@
-// logic.js
-
-// Assuming you have an array of questions in questions.js
-// var questionsArray = [...];
-
 // Function to show questions
 function showQuestions() {
   var startScreen = document.getElementById("start-screen");
@@ -34,11 +29,38 @@ function displayQuestion(index) {
     var choiceButton = document.createElement("button");
     choiceButton.textContent = choice;
 
-    // Add an event listener for choice selection 
-    choiceButton.addEventListener("click", function () {
-      // Handle the user's choice 
-      console.log("You selected: " + choice);
-    });
+ // Add an event listener for choice selection 
+choiceButton.addEventListener("click", function () {
+  // Save the selected choice to local storage
+  localStorage.setItem(`question_${index}_choice`, choice);
+
+  // Check if the selected choice is correct
+  if (choice === questionsArray[index].correctAnswer) {
+    // Increment the score if the choice is correct
+    score++;
+
+    // You can also update the score display if needed
+    // Example: document.getElementById("score").textContent = score;
+  }
+
+  // Move to the next question
+  index++;
+
+  // Check if there are more questions
+  if (index < questionsArray.length) {
+    // Display the next question
+    displayQuestion(index);
+  } else {
+    // No more questions, handle quiz completion logic
+
+    // Display the results using the recorded choices in local storage
+    displayResults();
+
+    // Optionally, you can reset the quiz state if needed
+    resetQuizState();
+  }
+});
+
 
     // Add a class to style the buttons 
     choiceButton.classList.add("choice-button");
