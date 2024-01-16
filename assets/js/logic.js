@@ -1,3 +1,7 @@
+
+var score = 0;
+var timerInterval; // Variable to store the timer interval ID
+
 // Function to show questions
 function showQuestions() {
   var startScreen = document.getElementById("start-screen");
@@ -9,9 +13,38 @@ function showQuestions() {
   // Show the questions section
   questionsSection.classList.remove("hide");
 
+  // Start the timer
+  startTimer();
+
   // Display the first question
   displayQuestion(0);
 }
+
+// Function to start the timer
+function startTimer() {
+  var timeElement = document.getElementById("time");
+  var timeLeft = 30; // Set the initial time limit (in seconds) to 30
+
+  // Update the timer every second
+  timerInterval = setInterval(function () {
+    // Display the remaining time
+    timeElement.textContent = timeLeft;
+
+    // Check if time has run out
+    if (timeLeft <= 0) {
+      // Stop the timer
+      clearInterval(timerInterval);
+
+      // Handle quiz completion logic when time runs out
+      displayResults();
+    }
+
+    // Decrement the time
+    timeLeft--;
+  }, 1000); // Update every 1000 milliseconds (1 second)
+}
+
+
 
 // Function to display a question
 function displayQuestion(index) {
