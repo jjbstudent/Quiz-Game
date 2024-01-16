@@ -85,12 +85,11 @@ choiceButton.addEventListener("click", function () {
     // No more questions, handle quiz completion logic
 
     // Display the results using the recorded choices in local storage
-    // When the Quiz has ended display results 
     displayResults();
     console.log("Final Score:", score);
     document.addEventListener
-
-    
+    // Stop the timer
+    clearInterval(timerInterval);
   }
 });
 
