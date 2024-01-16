@@ -63,10 +63,8 @@ function displayQuestion(index) {
 
   // Display the question
   questionTitle.textContent = questionsArray[index].question;
-
   // Clear previous choices
   choicesContainer.innerHTML = "";
-
   // Display choices as buttons
   questionsArray[index].choices.forEach(function (choice) {
     var choiceButton = document.createElement("button");
@@ -92,7 +90,6 @@ choiceButton.addEventListener("click", function () {
     // Display the next question
     displayQuestion(index);
   } else {
-    // No more questions, handle quiz completion logic
 
     // Display the results using the recorded choices in local storage
     displayResults();
@@ -106,17 +103,13 @@ choiceButton.addEventListener("click", function () {
   }
 });
 
-
     // Add a class to style the buttons 
     choiceButton.classList.add("choice-button");
-
     choicesContainer.appendChild(choiceButton);
-
     // Add a line break after each button  
     choicesContainer.appendChild(document.createElement("br"));
   });
 }
-
 // Add an event listener to the "Start Quiz" button
 var startButton = document.getElementById("start");
 startButton.addEventListener("click", showQuestions);

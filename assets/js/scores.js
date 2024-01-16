@@ -24,12 +24,6 @@ function displayResults() {
     console.log(`Question ${i + 1}: ${isCorrect ? "Correct" : "Incorrect"}`);
   }
 
-  // Display the final score in the HTML
-  var finalScoreElement = document.getElementById("final-score");
-  if (finalScoreElement) {
-    finalScoreElement.textContent = finalScore;
-  }
-
   // Store the final score in local storage for future reference
   localStorage.setItem("finalScore", finalScore);
 
@@ -38,9 +32,7 @@ function displayResults() {
   if (questionsSection) {
     questionsSection.classList.add("hide");
   }
-
 }
-  
   // Function to calculate the final score
   function calculateFinalScore(recordedChoices) {
     var score = 0;
@@ -52,13 +44,4 @@ function displayResults() {
     }
     return score;
   }
-  
-
-  // NOTES
-  // When there are no more questions 
-  // hide the question and choices 
-  // then display the end-screen with the final score in the html
-  // update initials and high score when submit button is pressed 
-  // then update high scores and store in local storage along with initials of player
-  // if score is greater than the high score update high score and initials of player
   
