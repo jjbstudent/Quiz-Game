@@ -19,11 +19,18 @@ function showQuestions() {
   // Display the first question
   displayQuestion(0);
 }
+function displayEndScreen(finalScore) {
+  // Set the final score
+  document.getElementById('final-score').innerText = finalScore;
+  
+  // Show the end screen
+  document.getElementById('end-screen').classList.remove('hide');
+}
 
 // Function to start the timer
 function startTimer() {
   var timeElement = document.getElementById("time");
-  var timeLeft = 30; // Set the initial time limit (in seconds) to 30
+  var timeLeft = 5; // Set the initial time limit (in seconds) to 30
 
   // Update the timer every second
   timerInterval = setInterval(function () {
@@ -37,6 +44,9 @@ function startTimer() {
 
       // Handle quiz completion logic when time runs out
       displayResults();
+
+      // If timer reaches 0 disply end-screen
+      displayEndScreen(score);
     }
 
     // Decrement the time
@@ -90,6 +100,9 @@ choiceButton.addEventListener("click", function () {
     document.addEventListener
     // Stop the timer
     clearInterval(timerInterval);
+
+    // Display endscreen
+    displayEndScreen(score);
   }
 });
 
