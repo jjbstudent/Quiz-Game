@@ -16,7 +16,7 @@ function showQuestions() {
 // Function to start the timer
 function startTimer() {
   var timeElement = document.getElementById("time");
-  var timeLeft = 5;
+  var timeLeft = 30;
 
   timerInterval = setInterval(function () {
     timeElement.textContent = timeLeft;
@@ -47,6 +47,9 @@ function displayQuestion(index) {
 
       if (choice === questionsArray[index].correctAnswer) {
         score++;
+      } else {
+        // Deduct 5 seconds for incorrect answer
+        deductTime(5);
       }
 
       index++;
@@ -63,6 +66,20 @@ function displayQuestion(index) {
     choicesContainer.appendChild(choiceButton);
     choicesContainer.appendChild(document.createElement("br"));
   });
+}
+
+// Function to deduct time from the timer
+function deductTime(seconds) {
+  var timeElement = document.getElementById("time");
+  var currentTime = parseInt(timeElement.textContent) || 0;
+
+  // Ensure time doesn't go below zero
+  var newTime = Math.max(0, currentTime - seconds);
+  timeElement.textContent = Math.max(0, currentTime - seconds);
+  
+  // Log the time deduction
+  console.log(`Deducted ${seconds} seconds. Remaining time: ${newTime} seconds`);
+
 }
 
 // Function to end the quiz and display results
