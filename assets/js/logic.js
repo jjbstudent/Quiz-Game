@@ -1,112 +1,88 @@
-
 var score = 0;
-var timerInterval; // Variable to store the timer interval ID
+var timerInterval;
 
-// Function to show questions
+// Function to start the quiz by showing questions
 function showQuestions() {
   var startScreen = document.getElementById("start-screen");
   var questionsSection = document.getElementById("questions");
 
-  // Hide the start screen
   startScreen.classList.add("hide");
-
-  // Show the questions section
   questionsSection.classList.remove("hide");
 
-  // Start the timer
   startTimer();
-
-  // Display the first question
   displayQuestion(0);
-}
-function displayEndScreen(finalScore) {
-  // Set the final score
-  document.getElementById('final-score').innerText = finalScore;
-  
-  // Show the end screen
-  document.getElementById('end-screen').classList.remove('hide');
 }
 
 // Function to start the timer
 function startTimer() {
   var timeElement = document.getElementById("time");
-  var timeLeft = 5; // Set the initial time limit (in seconds) to 30
+  var timeLeft = 5;
 
-  // Update the timer every second
   timerInterval = setInterval(function () {
-    // Display the remaining time
     timeElement.textContent = timeLeft;
 
-    // Check if time has run out
     if (timeLeft <= 0) {
-      // Stop the timer
       clearInterval(timerInterval);
-
-      // Handle quiz completion logic when time runs out
-      displayResults();
-
-      // If timer reaches 0 disply end-screen
-      displayEndScreen(score);
+      endQuiz();
     }
 
-    // Decrement the time
     timeLeft--;
-  }, 1000); // Update every 1000 milliseconds (1 second)
+  }, 1000);
 }
 
-// Function to display questions
+// Function to display a question
 function displayQuestion(index) {
   var questionTitle = document.getElementById("question-title");
   var choicesContainer = document.getElementById("choices");
 
-  // Display the question
   questionTitle.textContent = questionsArray[index].question;
-  // Clear previous choices
   choicesContainer.innerHTML = "";
-  // Display choices as buttons
+
   questionsArray[index].choices.forEach(function (choice) {
     var choiceButton = document.createElement("button");
     choiceButton.textContent = choice;
 
- // Add an event listener for choice selection 
-choiceButton.addEventListener("click", function () {
-  // Save the selected choice to local storage
-  localStorage.setItem(`question_${index}_choice`, choice);
+    choiceButton.addEventListener("click", function () {
+      localStorage.setItem(`question_${index}_choice`, choice);
 
-  // Check if the selected choice is correct
-  if (choice === questionsArray[index].correctAnswer) {
-    // Increment the score if the choice is correct
-    score++;
-  }
+      if (choice === questionsArray[index].correctAnswer) {
+        score++;
+      }
 
-  // Move to the next question
-  index++;
+      index++;
 
-  // Check if there are more questions
-  if (index < questionsArray.length) {
-    // Display the next question
-    displayQuestion(index);
-  } else {
+      if (index < questionsArray.length) {
+        displayQuestion(index);
+      } else {
+        clearInterval(timerInterval);
+        endQuiz();
+      }
+    });
 
-    // Display the results using the recorded choices in local storage
-    displayResults();
-    console.log("Final Score:", score);
-    document.addEventListener
-    // Stop the timer
-    clearInterval(timerInterval);
-
-    // Display endscreen
-    displayEndScreen(score);
-  }
-});
-
-    // Add a class to style the buttons 
     choiceButton.classList.add("choice-button");
     choicesContainer.appendChild(choiceButton);
-    // Add a line break after each button  
     choicesContainer.appendChild(document.createElement("br"));
   });
 }
+
+// Function to end the quiz and display results
+function endQuiz() {
+  displayResults();
+  console.log("Final Score:", score);
+  displayEndScreen(score);
+}
+
+// Function to display quiz results
+function displayResults() {
+  // Existing displayResults logic here
+}
+
+// Function to display the end screen with the final score
+function displayEndScreen(finalScore) {
+  document.getElementById('final-score').innerText = finalScore;
+  document.getElementById('end-screen').classList.remove('hide');
+}
+
 // Add an event listener to the "Start Quiz" button
 var startButton = document.getElementById("start");
 startButton.addEventListener("click", showQuestions);
