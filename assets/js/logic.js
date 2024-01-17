@@ -79,19 +79,17 @@ function deductTime(seconds) {
   
   // Log the time deduction
   console.log(`Deducted ${seconds} seconds. Remaining time: ${newTime} seconds`);
-
 }
 
 // Function to end the quiz and display results
 function endQuiz() {
-  displayResults();
+   // Hide the questions and choices after the last question in the array
+   var questionsSection = document.getElementById("questions");
+   if (questionsSection) {
+     questionsSection.classList.add("hide");
+   }
   console.log("Final Score:", score);
-  displayEndScreen(score);
-}
-
-// Function to display quiz results
-function displayResults() {
-  // Existing displayResults logic here
+  displayEndScreen(score); //go to end screen
 }
 
 // Function to display the end screen with the final score
