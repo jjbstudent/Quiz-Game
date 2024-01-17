@@ -1,4 +1,3 @@
-var score = 0;
 
 // Function to display quiz results
 function displayResults() {
