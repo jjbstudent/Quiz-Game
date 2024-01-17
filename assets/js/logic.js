@@ -54,9 +54,7 @@ function startTimer() {
   }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
-
-
-// Function to display a question
+// Function to display questions
 function displayQuestion(index) {
   var questionTitle = document.getElementById("question-title");
   var choicesContainer = document.getElementById("choices");
@@ -79,7 +77,6 @@ choiceButton.addEventListener("click", function () {
   if (choice === questionsArray[index].correctAnswer) {
     // Increment the score if the choice is correct
     score++;
-
   }
 
   // Move to the next question
