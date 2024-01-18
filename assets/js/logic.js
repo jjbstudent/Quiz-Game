@@ -96,6 +96,7 @@ function endQuiz() {
 function displayEndScreen(finalScore) {
   document.getElementById('final-score').innerText = finalScore;
   document.getElementById('end-screen').classList.remove('hide');
+  submitScore();
 }
 
 // Add an event listener to the "Start Quiz" button
