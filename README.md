@@ -45,6 +45,31 @@ To run the quiz, open the index.html file in a web browser. Click the "Start Qui
 ![screen2](assets/ref/3.png)
 ![screen3](assets/ref/4.png)
 
+# Contributions
+https://developer.mozilla.org/en-US/docs/Web/API/setTimeout
+https://www.learningguild.com/articles/coding-sound-with-javascript-beginner-s-guide/
+https://bootcampspot.instructure.com/courses/5694/external_tools/313
+
+# Problems 
+I was trying to update the highscores.thml using this reference but failed 
+```
+// Get references to the list and button elements
+const list = document.getElementById('list');
+const addButton = document.getElementById('addButton');
+
+// Create a click event listener for the button
+addButton.addEventListener('click', function() {
+  // Create a new list item element
+  const listItem = document.createElement('li');
+  
+  // Set the text content of the list item
+  listItem.textContent = 'New Item';
+
+  // Append the list item to the list
+  list.appendChild(listItem);
+});
+```
+
 # Technologies Used
 HTML
 CSS
