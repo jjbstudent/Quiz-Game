@@ -73,6 +73,8 @@ addButton.addEventListener('click', function() {
 });
 ```
 
+- Because i couldnt get the highscores list on my html to update i have used a consle log to display the saved scores using a highscores array
+
 # Technologies Used
 HTML
 CSS
