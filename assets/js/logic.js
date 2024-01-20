@@ -47,9 +47,11 @@ function displayQuestion(index) {
 
       if (choice === questionsArray[index].correctAnswer) {
         score++;
+        playRightAnswerSound();
       } else {
         // Deduct 5 seconds for incorrect answer
         deductTime(5);
+        playWrongAnswerSound();
       }
 
       index++;
@@ -66,6 +68,16 @@ function displayQuestion(index) {
     choicesContainer.appendChild(choiceButton);
     choicesContainer.appendChild(document.createElement("br"));
   });
+}
+
+// Function to play the sound for a correct answer
+function playRightAnswerSound() {
+  document.getElementById("correctsfx").play();
+}
+
+// Function to play the sound for a wrong answer
+function playWrongAnswerSound() {
+  document.getElementById("incorrectsfx").play();
 }
 
 // Function to deduct time from the timer
