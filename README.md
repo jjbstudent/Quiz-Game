@@ -33,6 +33,9 @@ Save High Scores:
 The ability to save high scores allows users to track their performance.
 
 ## Instructions 
+
+-link to my repo https://github.com/jjbstudent/Quiz-Game
+
 ```javascript
 git clone git@github.com:jjbstudent/Quiz-Game.git
 code .
