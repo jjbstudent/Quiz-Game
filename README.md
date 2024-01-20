@@ -43,7 +43,7 @@ code .
 
 ## Usage
 To run the quiz, open the index.html file in a web browser. Click the "Start Quiz" button to begin the timed quiz on JavaScript fundamentals. Answer the questions, and at the end of the quiz, save your initials and score to compare with other participants.
-
+- link to project https://jjbstudent.github.io/Quiz-Game/
 ![screen1](assets/ref/2.png)
 ![screen2](assets/ref/3.png)
 ![screen3](assets/ref/4.png)
