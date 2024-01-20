@@ -36,6 +36,7 @@ The ability to save high scores allows users to track their performance.
 ```javascript
 git clone git@github.com:jjbstudent/Quiz-Game.git
 code .
+```
 
 ## Usage
 To run the quiz, open the index.html file in a web browser. Click the "Start Quiz" button to begin the timed quiz on JavaScript fundamentals. Answer the questions, and at the end of the quiz, save your initials and score to compare with other participants.
@@ -50,6 +51,5 @@ This project is created as part of a coding boot camp, and credit goes to the bo
 ## License
 This project is licensed under the MIT License.
 
-```javascript
-git clone git@github.com:jjbstudent/Quiz-Game.git
+
 
