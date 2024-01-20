@@ -46,7 +46,5 @@ This project is created as part of a coding boot camp, and credit goes to the bo
 This project is licensed under the MIT License.
 
 ```javascript
-function example() {
-  console.log("This is a code block.");
-}
+git clone 
 
