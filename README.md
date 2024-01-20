@@ -51,7 +51,7 @@ https://www.learningguild.com/articles/coding-sound-with-javascript-beginner-s-g
 https://bootcampspot.instructure.com/courses/5694/external_tools/313
 
 # Problems 
-I was trying to update the highscores.thml using this reference but failed 
+Updating the highscores.html using this reference, updating an ul list by adding il items
 ```
 // Get references to the list and button elements
 const list = document.getElementById('list');
