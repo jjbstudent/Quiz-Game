@@ -41,6 +41,10 @@ code .
 ## Usage
 To run the quiz, open the index.html file in a web browser. Click the "Start Quiz" button to begin the timed quiz on JavaScript fundamentals. Answer the questions, and at the end of the quiz, save your initials and score to compare with other participants.
 
+![screen1](ref/1.jpg)
+![screen2](ref/2.png)
+![screen3](ref/3.png)
+
 # Technologies Used
 HTML
 CSS
