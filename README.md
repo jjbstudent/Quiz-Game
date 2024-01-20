@@ -14,9 +14,7 @@ SO THAT I can gauge my progress compared to my peers
 
 The project includes the following features:
 
-- Start Button:
-
-A start button initiates the quiz.
+- A start button initiates the quiz.
 When clicked, a timer starts, and the first question is displayed.
 Question Navigation:
 
