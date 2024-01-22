@@ -7,35 +7,47 @@
     <title>High scores</title>
 
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <script src="./assets/js/scores.js"></script>
   </head>
 
   <body>
     <div class="wrapper">
       <h1>High Scores</h1>
-      <ol id="highscores">
-        <li>test item 1 - Score: 90</li>
-        <li>test item 2 - Score: 85</li>
-      </ol>
+      <ol id="highscores"></ol>
 
       <a href="index.html"><button>Go Back</button></a>
       <button id="clear">Clear High Scores</button>
     </div>
 
-    
-
     <script>
-      // Retrieve high scores from local storage
+      //Retrieve high scores from local storage
       var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  
+
       // Display high scores in the "highscores" ol element
       var highscoresList = document.getElementById("highscores");
-  
+
       highScores.forEach(function (entry) {
         var listItem = document.createElement("li");
         listItem.textContent = entry.initials + " - Score: " + entry.score;
         highscoresList.appendChild(listItem);
       });
+
+      function clearHighScores() {
+        var highscoresList = document.getElementById("highscores");
+        if (highscoresList) {
+          console.log("clear");
+          // Clear the items inside the highscores list
+          highscoresList.innerHTML = "";
+          console.log(highscoresList);
+
+          // Clear the high scores from local storage
+          localStorage.removeItem("highScores");
+        } else {
+          console.error("High scores list not found.");
+        }
+      }
+      var ClearButton = document.getElementById("clear");
+      ClearButton.addEventListener("click", clearHighScores);
     </script>
+    <script src="./assets/js/scores.js"></script>
   </body>
 </html>
