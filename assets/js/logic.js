@@ -95,6 +95,17 @@ function deductTime(seconds) {
   );
 }
 
+function showFeedback() {
+  // Get the feedback div
+  var feedbackDiv = document.getElementById("feedback");
+
+  // Display the message
+  feedbackDiv.innerHTML = "Quiz complete";
+
+  // Remove the 'hide' class to show the feedback
+  feedbackDiv.classList.remove("hide");
+}
+
 // Function to end the quiz and display results
 function endQuiz() {
   // Hide the questions and choices after the last question in the array
@@ -103,6 +114,7 @@ function endQuiz() {
     questionsSection.classList.add("hide");
   }
   displayEndScreen(score); //go to end screen
+  showFeedback();
 }
 
 // Function to display the end screen with the final score
