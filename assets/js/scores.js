@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var finalScoreText = finalScoreElement.textContent.trim();
     var finalScore = parseFloat(finalScoreText);
 
-    // Log the final score for debugging
-    console.log("Final Score:", finalScore);
-
     return finalScore;
   }
 
@@ -45,18 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Function to add item to the highscores list
-  function addItem(initials, finalScore) {
-    // Create a new list item element
-    var newItem = document.createElement("li");
-
-    // Set the text content of the new item
-    newItem.textContent = initials + " - Score: " + finalScore;
-
-    // Append the new item to the highscores list
-    document.getElementById("highscores").appendChild(newItem);
-  }
-
   // Get the submit button element
   var submitButton = document.getElementById("submit");
 
@@ -64,21 +49,5 @@ document.addEventListener("DOMContentLoaded", function () {
   submitButton.addEventListener("click", function () {
     submitScore();
 
-    // Get the input values
-    var initials = document.getElementById("initials").value;
-    var finalScore = parseInt(document.getElementById("finalScore").value, 10);
-
-    // Validate if finalScore is a valid integer
-    if (isNaN(finalScore)) {
-      alert("Please enter a valid integer for the Final Score.");
-      return;
-    }
-
-    // Add the item to the highscores list
-    addItem(initials, finalScore);
-
-    // Clear the input fields
-    document.getElementById("initials").value = "";
-    document.getElementById("finalScore").value = "";
   });
 });

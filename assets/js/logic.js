@@ -88,26 +88,39 @@ function deductTime(seconds) {
   // Ensure time doesn't go below zero
   var newTime = Math.max(0, currentTime - seconds);
   timeElement.textContent = Math.max(0, currentTime - seconds);
-  
+
   // Log the time deduction
-  console.log(`Deducted ${seconds} seconds. Remaining time: ${newTime} seconds`);
+  console.log(
+    `Deducted ${seconds} seconds. Remaining time: ${newTime} seconds`
+  );
+}
+
+function showFeedback() {
+  // Get the feedback div
+  var feedbackDiv = document.getElementById("feedback");
+
+  // Display the message
+  feedbackDiv.innerHTML = "Quiz complete";
+
+  // Remove the 'hide' class to show the feedback
+  feedbackDiv.classList.remove("hide");
 }
 
 // Function to end the quiz and display results
 function endQuiz() {
-   // Hide the questions and choices after the last question in the array
-   var questionsSection = document.getElementById("questions");
-   if (questionsSection) {
-     questionsSection.classList.add("hide");
-   }
-  console.log("Final Score:", score);
+  // Hide the questions and choices after the last question in the array
+  var questionsSection = document.getElementById("questions");
+  if (questionsSection) {
+    questionsSection.classList.add("hide");
+  }
   displayEndScreen(score); //go to end screen
+  showFeedback();
 }
 
 // Function to display the end screen with the final score
 function displayEndScreen(finalScore) {
-  document.getElementById('final-score').innerText = finalScore;
-  document.getElementById('end-screen').classList.remove('hide');
+  document.getElementById("final-score").innerText = finalScore;
+  document.getElementById("end-screen").classList.remove("hide");
 }
 
 // Add an event listener to the "Start Quiz" button
